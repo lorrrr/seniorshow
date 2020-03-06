@@ -92,6 +92,7 @@ function setup() {
 
   hexagon = Bodies.polygon(1000,100,6,160,options);
   Body.scale(hexagon,0.8,1);
+  Body.rotate(hexagon,90);
   World.add(world, hexagon);
 
 
