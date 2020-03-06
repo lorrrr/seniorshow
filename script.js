@@ -47,8 +47,8 @@ function setup() {
   var options = {
     isStatic: true
   };
-  ground = Bodies.rectangle(width / 2, height + 50, width, 98, options);
-  wall1 = Bodies.rectangle(width / 2, -50, width, 98, options);
+  ground = Bodies.rectangle(width / 2, height + 50, width+200, 98, options);
+  wall1 = Bodies.rectangle(width / 2, -50, width+200, 98, options);
   wall2 = Bodies.rectangle(-50, height / 2, 98, height, options);
   wall3 = Bodies.rectangle(width + 50, height / 2, 98, height, options);
 
