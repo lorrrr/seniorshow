@@ -19,17 +19,17 @@ var logo;
 var scrollPos=0;
 var gScale;
 
-function mouseWheel(event) {
-
-  scrollPos += event.delta;
-  gScale= map(scrollPos,500,0,-1,1);
-    console.log(gScale);
-  //posRev = height - 10 - pos;
-    world.gravity.y=gScale;
-    World.remove(world, wall1);
-    fill(255);
-    rect(50,0,width-50,height*gScale);
-}
+// function mouseWheel(event) {
+//
+//   scrollPos += event.delta;
+//   gScale= map(scrollPos,500,0,-1,1);
+//     console.log(gScale);
+//   //posRev = height - 10 - pos;
+//     world.gravity.y=gScale;
+//     World.remove(world, wall1);
+//     fill(255);
+//     rect(50,0,width-50,height*gScale);
+// }
 
 
 function setup() {
@@ -169,7 +169,7 @@ function drawRect() {
   fill(0);
   textSize(40);
   textFont(union);
-  track("ON VIEW UNTIL", -143, -3, -1);
+  track("ON VIEW UNTIL", -143, -3, -1.5);
   textFont(lido);
   textSize(38);
   track("March 17, 2020", -120, 34, -1.5);
@@ -237,7 +237,7 @@ function drawRect1() {
   fill(0);
   textSize(40);
   textFont(union);
-  track("OPENING RECEPTION", -195, -3, -1);
+  track("OPENING RECEPTION", -195, -3, -1.5);
   textFont(lido);
   textSize(38);
   track("March 12, 2020", -100, 34, -1.5);
@@ -270,9 +270,9 @@ function drawHex() {
   textSize(40);
   textFont(union);
 
-  track("WOODS-", -80, -25, -2);
-  track("GERRY", -70, 15, -2);
-  track("GALLERY", -90, 55, -2);
+  track("WOODS-", -80, -25, -1.5);
+  track("GERRY", -70, 15, -1.5);
+  track("GALLERY", -90, 55, -1.5);
   pop();
 
 }
