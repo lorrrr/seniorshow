@@ -6,7 +6,7 @@ var Engine = Matter.Engine,
   Mouse = Matter.Mouse,
   MouseConstraint = Matter.MouseConstraint;
 
-var rectangle, ellip,triang,rectangle1;
+var rectangle, ellip,triang,rectangle1,hexagon;
 
 var engine;
 var world;
@@ -74,6 +74,9 @@ function setup() {
   Body.rotate(triang,90);
   World.add(world, triang);//h=210
 
+  hexagon = Bodies.polygon(900,200,6,160,options);
+  Body.scale(hexagon,0.8,1);
+  World.add(world, hexagon);
 
 
     options = {
@@ -84,6 +87,11 @@ function setup() {
 
   rectangle1 = Bodies.rectangle(800, 200, 700, 140, options);
   World.add(world, rectangle1);
+
+
+
+
+
 
   var canvasmouse = Mouse.create(canvas.elt);
   canvasmouse.pixelRatio = pixelDensity();
@@ -108,6 +116,9 @@ function draw() {
   drawEllipse();
   drawTriangle();
   drawRect1();
+  drawHex();
+
+
   if (mConstraint.body) {
     var pos = mConstraint.body.position;
     var offset = mConstraint.constraint.pointB;
@@ -190,12 +201,16 @@ function drawTriangle() {
   noStroke();
   fill(0,169,92);
   polygon(0,0,160,3);
+
+  pop();
+  push();
   fill(0);
   textSize(38);
-  rotate(PI/2);
+  translate(pos.x, pos.y);
+  rotate(angle+PI*3+PI/2);
   textFont(lido);
-  trackTime("6 P.M. –", -55, -20, -2);
-  trackTime("7:30 P.M.", -60, 20, -2);
+  trackTime("6 P.M. –", -55, -10, -2);
+  trackTime("7:30 P.M.", -60, 30, -2);
 
   pop();
 
@@ -220,6 +235,38 @@ function drawRect1() {
   textFont(lido);
   textSize(38);
   track("March 12, 2020", -100, 34, -1.5);
+  pop();
+
+}
+
+
+
+
+function drawHex() {
+  var pos = hexagon.position;
+  var angle = hexagon.angle;
+  push();
+  translate(pos.x, pos.y);
+
+  rotate(angle+PI/2);
+  scale(1,0.8);
+  rectMode(CENTER);
+  //textAlign(CENTER);
+  noStroke();
+  fill(0,120,191);
+  polygon(0, 0, 160,6);
+  pop();
+  push();
+
+  fill(0);
+  translate(pos.x, pos.y);
+  rotate(angle+PI/2*3);
+  textSize(40);
+  textFont(union);
+
+  track("WOODS-", -80, -25, -2);
+  track("GERRY", -70, 15, -2);
+  track("GALLERY", -90, 55, -2);
   pop();
 
 }
