@@ -62,7 +62,7 @@ function setup() {
     restitution: 0.5
   };
 
-  rectangle = Bodies.rectangle(width*0.2, 200, 500, 140, options);
+  rectangle = Bodies.rectangle(width*0.2, 200, 450, 140, options);
   World.add(world, rectangle);
 
   ellip=Bodies.circle(width*0.3,200,250,options)
@@ -83,7 +83,7 @@ function setup() {
       chamfer: { radius: 65 }
     };
 
-  rectangle1 = Bodies.rectangle(width*0.8, 200, 700, 140, options);
+  rectangle1 = Bodies.rectangle(width*0.8, 200, 650, 140, options);
   World.add(world, rectangle1);
   options = {
     friction: 0.7,
@@ -165,7 +165,7 @@ function drawRect() {
   //textAlign(CENTER);
   noStroke();
   fill(255, 102, 94);
-  rect(0, 0, 500, 140);
+  rect(0, 0, 450, 140);
   fill(0);
   textSize(40);
   textFont(union);
@@ -233,7 +233,7 @@ function drawRect1() {
   //textAlign(CENTER);
   noStroke();
   fill(255,232,0);
-  rect(0, 0, 700, 140,65);
+  rect(0, 0, 650, 140,65);
   fill(0);
   textSize(40);
   textFont(union);
