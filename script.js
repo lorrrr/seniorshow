@@ -106,7 +106,7 @@ function setup() {
   };
   mConstraint = MouseConstraint.create(engine, options);
   World.add(world, mConstraint);
-
+  world.gravity.y=0.8;
 
 }
 
