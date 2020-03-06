@@ -90,7 +90,7 @@ function setup() {
     restitution: 0.5
   };
 
-  hexagon = Bodies.polygon(1000,200,6,160,options);
+  hexagon = Bodies.polygon(1000,100,6,160,options);
   Body.scale(hexagon,0.8,1);
   World.add(world, hexagon);
 
