@@ -62,14 +62,14 @@ function setup() {
     restitution: 0.5
   };
 
-  rectangle = Bodies.rectangle(200, 200, 500, 140, options);
+  rectangle = Bodies.rectangle(width*0.2, 200, 500, 140, options);
   World.add(world, rectangle);
 
-  ellip=Bodies.circle(300,200,250,options)
+  ellip=Bodies.circle(width*0.3,200,250,options)
   Body.scale(ellip,1,0.28);
   World.add(world, ellip);
 
-  triang= Bodies.polygon(600,200,3,160,options);
+  triang= Bodies.polygon(width*0.6,200,3,160,options);
   Body.scale(triang,0.9,1);
   Body.rotate(triang,90);
   World.add(world, triang);//h=210
@@ -83,14 +83,14 @@ function setup() {
       chamfer: { radius: 65 }
     };
 
-  rectangle1 = Bodies.rectangle(800, 200, 700, 140, options);
+  rectangle1 = Bodies.rectangle(width*0.8, 200, 700, 140, options);
   World.add(world, rectangle1);
   options = {
     friction: 0.7,
     restitution: 0.5
   };
 
-  hexagon = Bodies.polygon(1000,100,6,160,options);
+  hexagon = Bodies.polygon(width*0.9,100,6,160,options);
   Body.scale(hexagon,0.8,1);
   Body.rotate(hexagon,90);
   World.add(world, hexagon);
@@ -287,4 +287,10 @@ function polygon(x, y, radius, npoints) {
     vertex(sx, sy);
   }
   endShape(CLOSE);
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+
+  setup();
 }
