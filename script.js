@@ -74,9 +74,7 @@ function setup() {
   Body.rotate(triang,90);
   World.add(world, triang);//h=210
 
-  hexagon = Bodies.polygon(900,200,6,160,options);
-  Body.scale(hexagon,0.8,1);
-  World.add(world, hexagon);
+
 
 
     options = {
@@ -87,7 +85,14 @@ function setup() {
 
   rectangle1 = Bodies.rectangle(800, 200, 700, 140, options);
   World.add(world, rectangle1);
+  options = {
+    friction: 0.7,
+    restitution: 0.5
+  };
 
+  hexagon = Bodies.polygon(1000,200,6,160,options);
+  Body.scale(hexagon,0.8,1);
+  World.add(world, hexagon);
 
 
 
