@@ -306,7 +306,7 @@ function windowResized() {
   setup();
 }
 
-function mouseClicked() {
+function mouseReleased() {
 
 
   if (!(mConstraint.body)) {
@@ -323,22 +323,22 @@ function mouseClicked() {
   }
 }
 
-function touchStarted() {
-
-
-  if (!(mConstraint.body)) {
-    if (!$("#names").hasClass("active")) {
-      $('#names').toggleClass('active');
-      $('#logo').toggleClass('active');
-      sizeDown();
-    }
-    else if (mouseX<width*0.7) {
-      $('#names').toggleClass('active');
-        $('#logo').toggleClass('active');
-      sizeUp();
-    }
-  }
-}
+// function touchStarted() {
+//
+//
+//   if (!(mConstraint.body)) {
+//     if (!$("#names").hasClass("active")) {
+//       $('#names').toggleClass('active');
+//       $('#logo').toggleClass('active');
+//       sizeDown();
+//     }
+//     else if (mouseX<width*0.7) {
+//       $('#names').toggleClass('active');
+//         $('#logo').toggleClass('active');
+//       sizeUp();
+//     }
+//   }
+// }
 
 
 
