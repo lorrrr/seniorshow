@@ -1,72 +1,218 @@
 <html>
 
 
-  <head>
-    <!-- Matter -->
-    <script src="matter.js"></script>
+<head>
+  <!-- Matter -->
+  <script src="matter.js"></script>
 
-    <script
-    src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous"></script>
-    <script
-    src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
 
 
-    </head>
-    <body>
-      <canvas id="canvas" ></canvas>
-      <img id="logo" src="asset/logo.svg" style=""></img>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+
+  <img id="logo" src="asset/logo.svg" style=""></img>
+
+  <div id="names">
+    <!-- <img id="cross" src="asset/cross.svg" style=""></img> -->
+    <div id="wrapper"></div>
+    <ul>
+
+      <li>Brian Bailey</li>
+      <li>Ben Sampson</li>
+      <li><a href="https://www.carolynchens.com/">Carolyn Chen</a></li>
+      <li>Cooper Thompson</li>
+      <li>Damini Agrawal</li>
+      <li>Emily Mahar</li>
+      <li>Libby Marrs</li>
+      <li>Erica Silver</li>
+      <li>Felix Summ</li>
+      <li>Gabriel Abascal</li>
+      <li>Grace Young</li>
+      <li>Hye Jin Cho</li>
+      <li>Hye Won Choi</li>
+      <li>David Iwanaga</li>
+      <li>Isobel Connelly</li>
+      <li>Irvi Stefo</li>
+      <li>Lulian Ahn</li>
+      <li>Jack Fahnestock</li>
+      <li>Ju Eun Jeon</li>
+      <li>Jennifer Joung</li>
+      <li>Jae Won Kim</li>
+      <li>Jun Ko</li>
+      <li><a href="http://musiclifeg.com">George Lee</a></li>
+      <li>Christina Chiu</li>
+      <li>Minji Koo</li>
+      <li>Madison Ledford</li>
+      <li>Megan Peng</li>
+      <li>Madeleine Teh</li>
+      <li>Olivia Orr</li>
+      <li>Pooja Cavale</li>
+      <li>Rory Hernandez-Romero</li>
+      <li>Serena Cabido</li>
+      <li>So Young Chun</li>
+      <li>Sara Martinez</li>
+      <li>Tarelle Parker</li>
+      <li>Sara Park</li>
+      <li>Vanissa Wong</li>
+      <li>Xio Espana</li>
+      <li>Young-Eon Kim</li>
+      <li> <a href="http://lorraine.li">Lorraine Li</a></li>
+      <li>Jeffrey Tang</li>
+      <li>Cammy Cha</li>
+      <li>Pooja Nitturkar</li>
+      <li>Tiger Dingsun</li>
+      <li>Javier Syquia</li>
+      <li>Cathy Park</li>
+      <br>
+    </ul>
+
+    <style>
+      body {
+        margin: 0;
+        background: black;
+
+      }
 
 
 
+      @font-face {
+        font-family: "Union";
+        src: url("fonts/union.woff") format("woff");
 
+      }
 
-
-  <style>
-    body {
-      margin:0;
-
-    }
-    @font-face {
-    font-family: "Union";
-    src: url("fonts/union.woff") format("woff");
-
-  }
-  @font-face {
-  font-family: "Lido";
-  src: url("fonts/LidoSTF.otf") format("otf");
-
-}
-
-    #canvas {
-      position:absolute;
-      z-index:-100;
+      @font-face {
         font-family: "Lido";
-    }
+        src: url("fonts/LidoSTF.otf") format("otf");
 
-    #logo {
-      display:block;
-      width:96%;
-      position:absolute;
-      left:0;
-      top:0;
-      z-index:10;
-      padding:2%;
-      pointer-events: none;
-      user-select: none;
-    }
+      }
 
-  </style>
-      <script src="script.js"></script>
+      canvas {
+        position: absolute;
+        top: 0;
+
+        font-family: "Lido";
+      }
+
+      #logo {
+        display: block;
+        z-index: 10;
+        width: 96%;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        padding: 2%;
+        pointer-events: none;
+        user-select: none;
+        transform-origin: top left;
+        transition: transform 0.25s;
+      }
+
+      #logo.active {
+        transform: scale(0.7);
+      }
+
+      /*
+      #names {
+        position: absolute;
+
+        display: block;
+
+        margin-top: 100vh;
+
+
+      } */
+
+      ul {
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+        /* display: flex; */
+
+        margin: 0;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding: 0;
+        padding-left: 2vw
+      }
+
+      ul li {
+        /* flex: 1 0 33%; */
+        font-size: 3vw;
+        font-family: "Union";
+        text-decoration: none;
+        list-style-type: none;
+        line-height: 1.2em;
+        margin: 0;
+        padding: 0;
+        padding-bottom: 0.2em;
 
 
 
-    </body>
+
+      }
+
+      a {
+        target-name: new;
+        target-new: tab;
+        text-decoration: none;
+        color: black;
+
+
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+
+      #names {
+        color: black;
+        width: 30vw;
+        transform: translateX(34vw);
+        transition: transform 0.25s;
+        position: fixed;
+        z-index: 10;
+        background: white;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        line-height: 0.9em;
+        overflow-y: scroll;
+      }
+
+      #names.active {
+        transform: translateX(0);
+
+      }
+      #cross {
+        position:fixed;
+        display: block;
+        width:3vw;
+        height:3vw;
+        top:3vh;
+        left:80%;
+
+      }
+    </style>
+    <script src="script.js"></script>
+
+    <!-- <script>
+    $("li").hover(function(){
+    this.style.cursor="url('icons/"+$(this).attr("data-icon")+"')";
+    console.log("url('icons/"+$(this).attr("data-icon")+"',default)");
+  });
+    </script> -->
+  </div>
+
+
+</body>
 
 
 
