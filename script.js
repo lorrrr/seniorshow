@@ -323,8 +323,6 @@ function mouseClicked() {
   }
 }
 
-
-
 function touchStarted() {
 
 
@@ -341,6 +339,8 @@ function touchStarted() {
     }
   }
 }
+
+
 
 
 function sizeDown(){
