@@ -18,6 +18,9 @@ var ctx;
 var logo;
 var scrollPos = 0;
 var gScale;
+var grid;
+var bool=2;
+var imgx;
 
 // function mouseWheel(event) {
 //
@@ -36,6 +39,8 @@ function setup() {
   union = loadFont("fonts/union.woff");
   lido = loadFont("fonts/LidoSTF.otf");
   logo = loadImage("asset/logo.svg");
+  grid=loadImage("asset/cartesian.jpg");
+  frameRate(60);
 
   console.log(frameRate);
   var canvas = createCanvas(windowWidth, windowHeight);
@@ -113,6 +118,8 @@ function setup() {
   World.add(world, mConstraint);
   world.gravity.y = 0.8;
 
+
+  imgx=width/2;
 }
 
 
@@ -128,11 +135,30 @@ function draw() {
   background(0);
   Engine.update(engine);
 
-  drawRect();
-  drawEllipse();
-  drawTriangle();
-  drawRect1();
-  drawHex();
+
+
+  if ((bool==1)&(imgx>=width*0.35)){
+    imgx-=(width/2-width*0.35)/14;
+  };
+  if ((bool==0)&(imgx<=width/2)){
+    imgx+=(width/2-width*0.35)/13;
+  };
+  imageMode(CENTER);
+  push();
+
+  translate(imgx,height/2+100);
+  //rotate(-PI/20);
+
+  image(grid,0,0,420,420);
+
+  pop();
+
+
+    drawRect();
+    drawEllipse();
+    drawTriangle();
+    drawRect1();
+    drawHex();
 
 
   if (mConstraint.body) {
@@ -344,6 +370,7 @@ function mouseReleased() {
 
 
 function sizeDown(){
+ bool=1;
 
   width=width*0.7;
   var canvas = createCanvas(windowWidth, windowHeight);
@@ -419,11 +446,13 @@ function sizeDown(){
   world.gravity.y = 0.8;
 
 
+
 }
 
 
 
 function sizeUp(){
+  bool=0;
   World.remove(world, wall3);
   options = {
     isStatic: true
