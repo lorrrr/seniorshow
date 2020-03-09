@@ -306,7 +306,7 @@ function windowResized() {
   setup();
 }
 
-function mouseClicked() {
+function mousePressed() {
 
 
   if (!(mConstraint.body)) {
